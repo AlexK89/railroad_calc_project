@@ -9,19 +9,39 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-//Length calculation
-
 if(isset($_POST["submit_length_calc"])) {
-    $posts = (int)$_POST["posts"];
-    $railings = (int)$_POST["railings"];
+    $posts = filter_var($_POST["posts"], FILTER_SANITIZE_NUMBER_INT);
+    $railings = filter_var($_POST["railings"], FILTER_SANITIZE_NUMBER_INT);
 
+    echo check_amount($posts, $railings);
+}
+
+/*
+ * check_amount checking for enough amount of components
+ *
+ * @params $posts integer       -   amount of provided posts;
+ * @params $railings integer    -   amount of provided railings;
+ *
+ * @return string               -   max length what we can get with available components / warning message;
+ */
+function check_amount($posts, $railings)
+{
     if ($posts > 1 && $railings > 0) {
         $length = length($posts, $railings);
-        echo "<p>Length: " . $length . "</p>";
+        return "<p>Length: " . $length . "</p>";
     } else {
-        echo "<span style='color: red;'>" . "Provide enough amount of components" . "</span>";
+        return "<span style='color: red;'>" . "Provide enough amount of components" . "</span>";
     }
 }
+/*
+ * length based on providing available components calculating
+ * max length of railroad what we can build;
+ *
+ * @params $posts integer       -   amount of available posts;
+ * @params $railings integer    -   amount of available railings;
+ *
+ * @return $max_length integer  -   max length what we can get with available components;
+ */
 function length($posts, $railings)
 {
     $max_length = 0.1;

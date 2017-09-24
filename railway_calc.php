@@ -10,7 +10,7 @@
 <body>
 <form action="railway_calc.php" method="post">
     <h4>What length do you need?</h4>
-    <p><input type="number" pattern="[0-9]" placeholder="Length" name="length" step=".1"></p>
+    <p><input type="text" placeholder="Length" name="length"></p>
     <p><input type="submit" name="submit_components_calc"></p>
 </form>
 <?php
@@ -18,9 +18,9 @@
 ?>
 <form action="railway_calc.php" method="post">
     <h4>Available Railings</h4>
-    <p><input type="number" pattern="[0-9]" placeholder="Amount of railings" name="railings""></p>
+    <p><input type="text" placeholder="Amount of railings" name="railings""></p>
     <h4>Available Posts</h4>
-    <p><input type="number" pattern="[0-9]" placeholder="Amount of posts" name="posts""></p>
+    <p><input type="text" placeholder="Amount of posts" name="posts""></p>
     <p><input type="submit" name="submit_length_calc"></p>
 </form>
 <p class="result">
