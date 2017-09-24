@@ -28,9 +28,9 @@ function check_amount($posts, $railings)
 {
     if ($posts > 1 && $railings > 0) {
         $length = length($posts, $railings);
-        return "<p>Length: " . $length . "</p>";
+        return "<span>Length:</span> " . $length . " m";
     } else {
-        return "<span style='color: red;'>" . "Provide enough amount of components" . "</span>";
+        return "<span class='error'>" . "Provide enough amount of components" . "</span>";
     }
 }
 /*

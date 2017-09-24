@@ -13,10 +13,9 @@ if(isset($_POST["submit_components_calc"])) {
     $length = filter_var($_POST["length"], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     if ($length) {
         $components = components_calc($length);
-        echo "<p>Post: " . $components["posts"] . "</p>";
-        echo "<p>Railings: " . $components["railings"] . "</p>";
+        echo "<span>Post:</span> " . $components["posts"] . " <span>Railings:</span> " . $components["railings"];
     } else {
-        echo "<span style='color: red;'>" . "Provide the length you need." . "</span>";
+        echo "<span class='error'>" . "Provide the length you need. <br> Min length - 1.7m" . "</span>";
     }
 }
 /*
@@ -29,7 +28,7 @@ if(isset($_POST["submit_components_calc"])) {
 function components_calc($length)
 {
     $components = array("posts" => 0, "railings" => 0);
-    if ($length > 0) {
+    if ($length > 1.7) {
         $components = array("posts" => 2, "railings" => 1);
         while($length >= 1.7 ) {
             $components["posts"]++;
