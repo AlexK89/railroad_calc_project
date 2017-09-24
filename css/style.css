@@ -162,6 +162,9 @@ input[type="text"]::placeholder {
 }
 
 @media screen and (max-width: 400px) {
+    .page_header {
+        max-width: 300px;
+    }
     .page_header p {
         font-size: 2.5rem;
     }
