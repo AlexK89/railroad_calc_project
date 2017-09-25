@@ -17,6 +17,30 @@ class StackTest extends TestCase
     const COUNTER_3 = -10;
 
     /*
+     * testcheck_input_string checking if string is the return of main function
+     */
+    public function testcheck_input_string() {
+        $result = check_input(self::COUNTER_1);
+        $expect = "string";
+        $this -> assertInternalType($expect, $result);
+    }
+    /*
+  * testcheck_input_success checking if string is the return correct string
+  */
+    public function testcheck_input_success() {
+        $result = check_input(self::COUNTER_1);
+        $expect = "<span>Post:</span> 8 <span>Railings:</span> 7";
+        $this -> assertEquals($expect, $result);
+    }
+    /*
+     * testcheck_input_fail checking if string is the return correct string
+     */
+    public function testcheck_input_fail() {
+        $result = check_input(self::COUNTER_2);
+        $expect = "<span class='error'>Provide the length you need. <br> Min length - 1.7m</span>";
+        $this -> assertEquals($expect, $result);
+    }
+    /*
      * testcomponents_calc_array checking if array is the return of main function
      */
     public function testcomponents_calc_array() {

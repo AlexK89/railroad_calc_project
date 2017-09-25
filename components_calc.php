@@ -11,11 +11,22 @@ error_reporting(E_ALL | E_STRICT);
 
 if(isset($_POST["submit_components_calc"])) {
     $length = filter_var($_POST["length"], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    echo check_input($length);
+}
+
+/*
+ * check_input checking input, if succeed return number of components
+ *
+ * @params $length string       - represent requested length
+ *
+ * @return string               - message with numbers of components/error message
+ */
+function check_input($length) {
     if ($length) {
         $components = components_calc($length);
-        echo "<span>Post:</span> " . $components["posts"] . " <span>Railings:</span> " . $components["railings"];
+        return "<span>Post:</span> " . $components["posts"] . " <span>Railings:</span> " . $components["railings"];
     } else {
-        echo "<span class='error'>" . "Provide the length you need. <br> Min length - 1.7m" . "</span>";
+        return "<span class='error'>" . "Provide the length you need. <br> Min length - 1.7m" . "</span>";
     }
 }
 /*

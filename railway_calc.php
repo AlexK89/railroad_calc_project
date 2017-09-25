@@ -19,7 +19,7 @@
             <div class="header">
                 <h4>Provide length you need</h4>
             </div>
-            <form action="railway_calc.php" method="post">
+            <form action="railway_calc.php" method="POST">
                 <div class="input_text">
                     <p>
                         <input type="text" placeholder="Length" name="length">
@@ -39,7 +39,7 @@
             <div class="header">
                 <h4>Available components</h4>
             </div>
-            <form action="railway_calc.php" method="post">
+            <form action="railway_calc.php" method="POST">
                 <div class="input_text">
                     <p>
                         <input type="text" placeholder="Amount of railings" name="railings">
