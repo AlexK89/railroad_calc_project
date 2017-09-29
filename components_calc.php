@@ -29,6 +29,7 @@ function check_input($length) {
         return "<span class='error'>" . "Provide the length you need. <br> Min length - 1.7m" . "</span>";
     }
 }
+
 /*
  * components_calc based on requested length calculate how much components of each type user need;
  *

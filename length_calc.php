@@ -33,6 +33,7 @@ function check_amount($posts, $railings)
         return "<span class='error'>" . "Provide enough amount of components" . "</span>";
     }
 }
+
 /*
  * length based on providing available components calculating
  * max length of railroad what we can build;
